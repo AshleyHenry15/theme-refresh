@@ -32,6 +32,7 @@ website:
 
   sidebar:
     - title: "Admin Guide"
+      style: "docked"
       contents:
         - admin.qmd
         - section: Subsection
@@ -72,7 +73,7 @@ format:
   html:
     theme:
       light: [theme.scss]
-      dark: darkly
+      dark: [theme-dark.scss]
     #highlight-style: zenburn
     link-external-icon: true
     link-external-newwindow: true
