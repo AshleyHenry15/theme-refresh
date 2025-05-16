@@ -1099,15 +1099,10 @@ $body-bg: $dark-md-background !default; // dark mode change
 
 // Sidebar
 
-div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-    background-color: #2b303c;
-    color: #fff !important;
-  }
-
-
-.sidebar.sidebar-navigation:not(.rollup) {
-   border-right: none !important; */
+div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
+    border-right: 1px solid yellow` !important;
 }
+
 
 
 
