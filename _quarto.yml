@@ -74,7 +74,8 @@ format:
     theme:
       light: [theme.scss]
       dark: [theme-dark.scss]
-    #highlight-style: zenburn
+    #highlight-style: atom-one
+    highlight-style: ayu
     link-external-icon: true
     link-external-newwindow: true
     toc: true

@@ -57,7 +57,6 @@ $navbar-brand-hl: $navbar-brand;
       box-shadow 0.25s;
   }
 
-
 /* Style for the version included in the website title */
 .navbar-title small {
     font-size: 14px;
@@ -80,11 +79,9 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
     padding: 6px;
 }
 
-
 /* Mini toc? */
 
 /* Footer */
-
 
 /* Posit icon fullcolor */
 #footer-right-posit-logo {
@@ -92,6 +89,7 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
     min-width: 18px;
     margin-left: -10px !important;
   }
+
 // Components
 
 /* Tabs and pills */

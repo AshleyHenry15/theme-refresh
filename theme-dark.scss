@@ -6,10 +6,11 @@
 // import shared colors
 @import '_posit-colors';
 
+$white: $posit-white;
 /*-- scss:variables --*/
-$primary: lighten($posit-blue, 15%);
+$primary: #3276b5;
 $dark-md-body: $posit-white;
-$dark-md-background: darken($posit-dark-blue-3, 99%);
+$dark-md-background: $posit-dark-gray-3;
 
 // Feature preview heading colors
 $preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
@@ -63,8 +64,11 @@ div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sideba
     border-right: 1px solid $posit-dark-gray-3 !important;
 }
 
+/* Code blocks */
 
-
+div.sourceCode, pre.console {
+    background-color: $dark-md-background !important;
+  }
 
 /* Inline code */
 p code:not(.sourceCode),
@@ -78,6 +82,7 @@ table caption code {
   background-color: #6e768166;
   color: #ffffff;
 }
+
 
 
 // Callouts

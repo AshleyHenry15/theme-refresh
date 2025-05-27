@@ -1,1 +1,1 @@
-Sitemap: https://f898110a-96d2-4945-8cf0-73c8bc344cbe.netlify.app/sitemap.xml
+Sitemap: https://ashley.quarto.pub/theme-refresh/sitemap.xml

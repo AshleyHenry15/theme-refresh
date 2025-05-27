@@ -1100,11 +1100,14 @@ $body-bg: $dark-md-background !default; // dark mode change
 // Sidebar
 
 div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
-    border-right: 1px solid yellow` !important;
+    border-right: 1px solid $posit-dark-gray-3 !important;
 }
 
+/* Code blocks */
 
-
+div.sourceCode, pre.console {
+    background-color: $dark-md-background;;
+  }
 
 /* Inline code */
 p code:not(.sourceCode),
@@ -1118,6 +1121,7 @@ table caption code {
   background-color: #6e768166;
   color: #ffffff;
 }
+
 
 
 // Callouts
