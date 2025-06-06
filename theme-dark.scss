@@ -87,6 +87,24 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
   color: darken($white, 5%);
 }
 
+// Components
+
+/* Tabs and pills */
+
+.nav-tabs .nav-link {
+  color: $navbar-fg;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: $primary !important;
+  font-weight: 700 !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: $dark-md-background !important;
+}
 
 // Code
 
@@ -130,10 +148,6 @@ td code:not(.sourceCode) {
   background-color: #6e768166 !important;
 }
 
-table caption code {
-  background-color: #6e768166;
-}
-
 div.sourceCode,
 pre.console,
 pre {
@@ -141,6 +155,27 @@ pre {
   scrollbar-color: #3A81C3 transparent; /* Firefox */
   overflow: auto; /* ensure scrollbars appear when needed */
 }
+
+// Tables
+
+
+table caption code {
+  background-color: #6e768166;
+}
+
+/* Striped table styles */
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  //--bs-table-bg-type: #001C2B !important;
+  --bs-table-bg-type: #1E293B !important; /* Use a contrasting color for odd rows */
+}
+
+/* Striped table hover */
+
+.table-hover > tbody > tr:hover > * {
+  --bs-table-bg-state: #2C3A54 !important;
+}
+
 
 /* Callouts */
 
@@ -163,4 +198,12 @@ div.callout-warning.callout {
 div.callout-important.callout {
   border-left-color: $posit-dark-burgundy-2 !important;
   border: 1px solid $posit-dark-burgundy-2 !important;
+}
+
+
+/* Footnotes */
+
+a.footnote-back {
+  font-weight: 900;
+  font-size: 1.1rem;
 }
