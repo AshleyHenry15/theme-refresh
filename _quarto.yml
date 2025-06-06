@@ -80,5 +80,6 @@ format:
     link-external-newwindow: true
     toc: true
     toc-expand: true
+    code-copy: true
     #include-in-header: "assets/_analytics.html"
 

@@ -1045,13 +1045,14 @@ $theme-name: null !default;
 
 // import shared colors
 @import '_posit-colors';
-$white: $posit-white;
 
 /*-- scss:variables --*/
 $primary: #3A81C3;
+$white: $posit-white;
+$code-bg: rgba(255, 255, 255, 0.05
 $dark-md-body: $white;
 $dark-md-background: #030712;
-
+$slate-800: #1E293B; // slate-800 vibe
 
 // Feature preview heading colors
 $preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
@@ -1081,37 +1082,31 @@ $navbar-brand: $posit-white;
 $navbar-brand-hl: $navbar-brand;
 //$navbar-brand-font-size: 14px !default;
 
+// Customize the sidebar
+$sidebar-fg: darken($white, 5%);
+$sidebar-bg: $dark-md-background;
+
+// Callouts
+$callout-color-note: $posit-blue;
+$callout-color-warning: $posit-orange;
+$callout-color-important: $posit-burgundy;
+
 // CSS overrides
 
-// Navbar
+// Layout
+/* Navbar */
 
 #quarto-header>nav {
   border-bottom: 1px solid $posit-dark-gray-1 !important;
 }
 
-
-// Body
-//
-// Settings for the `<body>` element.
-
-/* Body font */
-body {
-  font-weight: 400 !important;
-}
-
-//$body-color: $posit-green !default;
-$body-bg: $dark-md-background !default; // dark mode change
-
-
-// CSS overrides
-
-
-// Sidebar
+/* Sidebar */
 
 div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
-    border-right: 1px solid $posit-dark-gray-2 !important;
-    color: $white;;
+  border-right: 1px solid $posit-dark-gray-2 !important;
 }
+
+/* Sidebar pill for active item */
 
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
   background-color: #1E293B; // slate-800 vibe
@@ -1121,58 +1116,49 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
   padding: 6px;
 }
 
-/* Code blocks */
-
-.quarto-dark .code-with-filename .code-with-filename-file {
-  //background-color:  #091724 !important;
-  background-color: rgba(255, 255, 255, 0.05) !important;
-  border: none;
-  box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, .16);
-  padding: .5rem !important;
+/* Page navigation */
+.nav-page .nav-page-text {
+  color: darken($white, 5%);
 }
 
+// Body
+//
+// Settings for the `<body>` element.
+
+/* Body font */
+body {
+ // font-weight: 400 !important;
+}
+
+//$body-color: $posit-green !default;
+$body-bg: $dark-md-background !default; // dark mode change
+
+// Code
+
+/* Code blocks */
 
 div.sourceCode, pre.console {
-  background-color: rgba(255, 255, 255, 0.05) !important;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
-  border: none;
+  border: none !important;
   border-radius: 10px;
   margin-top: 2rem;
   margin-bottom: 2.5rem;
-
 }
-
-.code-with-filename {
-  border-radius: 1rem;
-  //background-color: #08131D;
-  padding: 0.25rem;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
-  margin-top: 2rem;
-  margin-bottom: 2.5rem;
+/* Code blocks with a filename styles */
+.quarto-dark .code-with-filename .code-with-filename-file {
+  border: none;
+  box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, .16);
+  padding: .5rem !important;
 }
 
 .code-with-filename .code-with-filename-file strong {
   color: $posit-light-gray-1;
 }
 
-.code-with-filename .code-with-filename-file {
-  border-radius: 0.75rem 0.75rem 0 0;
-  padding: 0.375rem 0.75rem;
-  font-size: 0.75rem;
-  line-height: 1.25rem;
-  color: #9bb4d4;
-  background-color: rgba(10, 25, 40, 0.6);
-  user-select: none;
-  font-weight: 600;
-  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.1);
-}
-
+/* Code with filename - code body styling */
 .code-with-filename div.sourceCode {
-  background-color: rgba(255, 255, 255, 0.05) !important;
   border-radius: 0 0 1rem 1rem;
-  padding: 1.25rem;
   overflow: auto;
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+  //box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
   font-size: 0.875rem;
   line-height: 1.5rem;
   border: none;
@@ -1187,10 +1173,11 @@ div.sourceCode, pre.console {
   color: #cbd5e1;
 }
 
+/* Code block with no lanuage specified */
+
 code:not(.sourceCode) {
-  background-color: rgba(255, 255, 255, 0.05) !important;
   color: #cbd5e1;
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+  //box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
   padding: .5rem;
 }
 
@@ -1206,89 +1193,44 @@ table caption code {
   background-color: #6e768166;
   color: #ffffff;
 }
+div.sourceCode,
+pre.console,
+pre {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #3A81C3 transparent; /* Firefox */
+  overflow: auto; /* ensure scrollbars appear when needed */
+}
 
-
-
-// Callouts
+/* Callouts */
 
 .callout.callout-style-default:not(.no-icon) div.callout-title-container {
-    color: #ffffff !important;
-  }
-  
-  div.callout.callout-style-default > div.callout-header {
-    opacity: none;
-  }
-  
-  /* Note */
-  
-  div.callout-note.callout {
-    border-left-color: $posit-dark-blue-2 !important;
-    border-right: 1px solid $posit-dark-blue-2 !important;
-    border-top: 1px solid $posit-dark-blue-2 !important;
-    border-bottom: 1px solid $posit-dark-blue-2 !important;
-  }
-  
-  div.callout-note .callout-icon::before {
-    // base64 -i _extensions/posit-docs/assets/images/info-circle-dm.svg
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iIzAwMDAwMCIgY2xhc3M9ImJpIGJpLWluZm8tY2lyY2xlIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGQ9Ik04IDE1QTcgNyAwIDEgMSA4IDFhNyA3IDAgMCAxIDAgMTRtMCAxQTggOCAwIDEgMCA4IDBhOCA4IDAgMCAwIDAgMTYiLz4KICA8cGF0aCBkPSJtOC45MyA2LjU4OC0yLjI5LjI4Ny0uMDgyLjM4LjQ1LjA4M2MuMjk0LjA3LjM1Mi4xNzYuMjg4LjQ2OWwtLjczOCAzLjQ2OGMtLjE5NC44OTcuMTA1IDEuMzE5LjgwOCAxLjMxOS41NDUgMCAxLjE3OC0uMjUyIDEuNDY1LS41OThsLjA4OC0uNDE2Yy0uMi4xNzYtLjQ5Mi4yNDYtLjY4Ni4yNDYtLjI3NSAwLS4zNzUtLjE5My0uMzA0LS41MzN6TTkgNC41YTEgMSAwIDEgMS0yIDAgMSAxIDAgMCAxIDIgMCIvPgo8L3N2Zz4=") !important;
-  }
-  
-  div.callout-note.callout-style-default > .callout-header {
-    background-color: $posit-blue !important;
-  }
-  
-  .callout-note .callout-icon::before, .callout.callout-style-simple .callout-toggle::before {
-    background-size: 1rem 1rem;
-    background-color: $posit-blue;
-    border-radius: 1rem;
-  }
-  
-  /* Warning */
-  
-  div.callout-warning.callout {
-    border-left-color: $posit-dark-orange-2 !important;
-    border-right: 1px solid $posit-dark-orange-2 !important;
-    border-top: 1px solid $posit-dark-orange-2 !important;
-    border-bottom: 1px solid $posit-dark-orange-2 !important;
-  }
-  
-  div.callout-warning .callout-icon::before {
-    // base64 -i _extensions/posit-docs/assets/images/exclamation-triangle-dm.svg
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iIzAwMDAwMCIgY2xhc3M9ImJpIGJpLWV4Y2xhbWF0aW9uLXRyaWFuZ2xlIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGQ9Ik03LjkzOCAyLjAxNkEuMTMuMTMgMCAwIDEgOC4wMDIgMmEuMTMuMTMgMCAwIDEgLjA2My4wMTYuMTUuMTUgMCAwIDEgLjA1NC4wNTdsNi44NTcgMTEuNjY3Yy4wMzYuMDYuMDM1LjEyNC4wMDIuMTgzYS4yLjIgMCAwIDEtLjA1NC4wNi4xLjEgMCAwIDEtLjA2Ni4wMTdIMS4xNDZhLjEuMSAwIDAgMS0uMDY2LS4wMTcuMi4yIDAgMCAxLS4wNTQtLjA2LjE4LjE4IDAgMCAxIC4wMDItLjE4M0w3Ljg4NCAyLjA3M2EuMTUuMTUgMCAwIDEgLjA1NC0uMDU3bTEuMDQ0LS40NWExLjEzIDEuMTMgMCAwIDAtMS45NiAwTC4xNjUgMTMuMjMzYy0uNDU3Ljc3OC4wOTEgMS43NjcuOTggMS43NjdoMTMuNzEzYy44ODkgMCAxLjQzOC0uOTkuOTgtMS43Njd6Ii8+CiAgPHBhdGggZD0iTTcuMDAyIDEyYTEgMSAwIDEgMSAyIDAgMSAxIDAgMCAxLTIgME03LjEgNS45OTVhLjkwNS45MDUgMCAxIDEgMS44IDBsLS4zNSAzLjUwN2EuNTUyLjU1MiAwIDAgMS0xLjEgMHoiLz4KPC9zdmc+") !important;
-  }
-  
-  div.callout-warning.callout-style-default > .callout-header {
-    background-color: $posit-dark-orange-1 !important;
-  }
-  
-  .callout-warning .callout-icon::before, .callout.callout-style-simple .callout-toggle::before {
-    clip-path: polygon(50% 0%, 100% 90%, 0% 90%);
-    background-color: $posit-orange;
-  }
-  
-  /* Important */
-  
-  div.callout-important.callout {
-    border-left-color: $posit-dark-burgundy-2 !important;
-    border-right: 1px solid $posit-dark-burgundy-2 !important;
-    border-top: 1px solid $posit-dark-burgundy-2 !important;
-    border-bottom: 1px solid $posit-dark-burgundy-2 !important;
-  }
-  
-  div.callout-important .callout-icon::before {
-    // base64 -i _extensions/posit-docs/assets/images/exclamation-circle-dm.svg
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iIzAwMDAwMCIgY2xhc3M9ImJpIGJpLWV4Y2xhbWF0aW9uLWNpcmNsZSIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBkPSJNOCAxNUE3IDcgMCAxIDEgOCAxYTcgNyAwIDAgMSAwIDE0bTAgMUE4IDggMCAxIDAgOCAwYTggOCAwIDAgMCAwIDE2Ii8+CiAgPHBhdGggZD0iTTcuMDAyIDExYTEgMSAwIDEgMSAyIDAgMSAxIDAgMCAxLTIgME03LjEgNC45OTVhLjkwNS45MDUgMCAxIDEgMS44IDBsLS4zNSAzLjUwN2EuNTUyLjU1MiAwIDAgMS0xLjEgMHoiLz4KPC9zdmc+") !important;
-  }
-  
-  div.callout-important.callout-style-default > .callout-header {
-    background-color: $posit-burgundy !important;
-  }
-  
-  .callout-important .callout-icon::before, .callout.callout-style-simple .callout-toggle::before {
-    background-size: 1rem 1rem;
-    background-color: $posit-burgundy;
-    border-radius: 1rem;
-  }
+  color: #ffffff !important;
+}
+
+div.callout.callout-style-default > div.callout-header {
+  opacity: none;
+}
+
+/* Note */
+
+div.callout-note.callout {
+  border-left-color: $posit-dark-blue-2 !important;
+  border: 1px solid $posit-dark-blue-2 !important;
+}
+
+/* Warning */
+
+div.callout-warning.callout {
+  border-left-color: $posit-dark-orange-2 !important;
+  border: 1px solid $posit-dark-orange-2 !important;
+}
+
+/* Important */
+
+div.callout-important.callout {
+  border-left-color: $posit-dark-burgundy-2 !important;
+  border: 1px solid $posit-dark-burgundy-2 !important;
+}
 
 
 // Heading font size customization
