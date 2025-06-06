@@ -1046,10 +1046,11 @@ $theme-name: null !default;
 // import shared colors
 @import '_posit-colors';
 
+$white: $posit-white;
 /*-- scss:variables --*/
-$primary: lighten($posit-blue, 15%);
+$primary: #3A81C3;
 $dark-md-body: $posit-white;
-$dark-md-background: darken($posit-dark-blue-3, 99%);
+$dark-md-background: #030712;
 
 // Feature preview heading colors
 $preview-header: $posit-orange; /* posit orange, contrast: 8.45 */
@@ -1072,7 +1073,7 @@ $font-size-base: 1rem;
 $body-color: $dark-md-body;
 
 //  Customize the navbar
-$navbar-bg: $posit-dark-gray-3;
+$navbar-bg: $dark-md-background;
 $navbar-fg: $posit-light-gray-2;
 $navbar-hl: $primary;
 $navbar-brand: $posit-white;
@@ -1080,6 +1081,13 @@ $navbar-brand-hl: $navbar-brand;
 //$navbar-brand-font-size: 14px !default;
 
 // CSS overrides
+
+// Navbar
+
+#quarto-header>nav {
+  border-bottom: 1px solid $posit-dark-gray-1 !important;
+}
+
 
 // Body
 //
@@ -1103,11 +1111,33 @@ div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sideba
     border-right: 1px solid $posit-dark-gray-3 !important;
 }
 
+div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
+  background-color: #1E293B; // slate-800 vibe
+  border-radius: 5px;
+  margin-bottom: 2px;
+  margin-left: -5px;
+  padding: 6px;
+}
+
 /* Code blocks */
 
+.quarto-dark .code-with-filename .code-with-filename-file {
+  background-color: #0C1A2B; !important;
+}
+
+.code-with-filename .code-with-filename-file strong {
+  color: $posit-light-gray-1;
+}
+
 div.sourceCode, pre.console {
-    background-color: $dark-md-background;;
-  }
+  background-color: #334155 !important;;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, .16);
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+  padding: .25rem;
+}
 
 /* Inline code */
 p code:not(.sourceCode),

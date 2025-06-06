@@ -75,7 +75,7 @@ format:
       light: [theme.scss]
       dark: [theme-dark.scss]
     #highlight-style: atom-one
-    highlight-style: ayu
+    highlight-style: arrow
     link-external-icon: true
     link-external-newwindow: true
     toc: true
