@@ -7,6 +7,7 @@ website:
   favicon: "assets/favicon.svg"
   bread-crumbs: true
   page-navigation: true
+  back-to-top-navigation: true
   navbar:
     pinned: true
     logo: "assets/posit-icon-fullcolor.svg"
@@ -65,7 +66,7 @@ website:
       - icon: lightbulb-fill
         aria-label: 'Link to Posit Solutions'
         href: "https://solutions.posit.co/"
-      - text: "<img alt='Link to main Posit site' src='/assets/posit-icon-fullcolor.svg' id='footer-right-posit-logo'>"
+      - text: "<img alt='Link to main Posit site' src='/assets/posit-icon-fullcolor.svg' style='width: 17px; margin-left: -10px !important'/>"
         href: "https://posit.co/"
 
 

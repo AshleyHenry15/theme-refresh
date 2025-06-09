@@ -84,6 +84,14 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
   padding: 6px;
 }
 
+/* Nav bar  right hamburger menu */
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: var(--bs-dropdown-link-hover-color);
+  background-color: $code-background !important;
+}
+
 /* Page navigation */
 .nav-page .nav-page-text {
   color: darken($white, 5%);

@@ -79,9 +79,7 @@ $callout-color-important: $posit-burgundy;
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
     background-color: #f4f4f7;
     border-radius: 5px;
-    margin-bottom: 2px;
-    margin-left: -5px;
-    padding: 6px;
+
 }
 
 
@@ -89,10 +87,8 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 
 /* Posit icon fullcolor */
 #footer-right-posit-logo {
-    width: 17px !important;
-    min-width: 17px;
-    margin-left: -10px !important;
-  }
+
+}
 
 // Components
 
@@ -185,6 +181,14 @@ body {
     margin-bottom: 2.5rem;
     padding: .25rem;
   }
+
+
+/* Footnotes */
+
+a.footnote-back {
+  font-weight: 900;
+  font-size: 1.1rem;
+}
 
 // Specialty headers
 
