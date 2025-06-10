@@ -11,7 +11,7 @@
 //$primary: #4C8DCC;
 $primary: lighten($posit-dark-blue-1, 20%);
 $white: $posit-white;
-$code-background: rgba(255, 255, 255, 0.05);
+$code-background: #ffffff14;
 $dark-md-body: $white;
 $dark-md-background: #030712;
 //$dark-md-background: #0A1320;
@@ -129,7 +129,7 @@ div.sourceCode, pre.console {
 
 /* Code blocks filename title styles */
 .quarto-dark .code-with-filename .code-with-filename-file {
-  background-color: rgba(255, 255, 255, 0.05) !important;
+  background-color: #ffffff0d !important;
   padding: .5rem !important;
   border: none;
 }

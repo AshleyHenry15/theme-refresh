@@ -1,4 +1,4 @@
-// quarto-scss-analysis-annotation { "quarto-version": "1.7.31" }
+// quarto-scss-analysis-annotation { "quarto-version": "1.8.13" }
 
 // quarto-scss-analysis-annotation { "origin": "'use' section from format" }
 
@@ -1047,11 +1047,14 @@ $theme-name: null !default;
 @import '_posit-colors';
 
 /*-- scss:variables --*/
-$primary: #3A81C3;
+//$primary: #3A81C3;
+//$primary: #4C8DCC;
+$primary: lighten($posit-dark-blue-1, 20%);
 $white: $posit-white;
 $code-background: rgba(255, 255, 255, 0.05);
 $dark-md-body: $white;
-$dark-md-background: #030712;
+$dark-md-background: lighten(#030712, 5%;
+//$dark-md-background: #0A1320;
 $slate-800: #1E293B; // slate-800 vibe
 
 // Feature preview heading colors
@@ -1122,6 +1125,14 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
   padding: 6px;
 }
 
+/* Nav bar  right hamburger menu */
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: var(--bs-dropdown-link-hover-color);
+  background-color: $code-background !important;
+}
+
 /* Page navigation */
 .nav-page .nav-page-text {
   color: darken($white, 5%);
@@ -1158,7 +1169,7 @@ div.sourceCode, pre.console {
 
 /* Code blocks filename title styles */
 .quarto-dark .code-with-filename .code-with-filename-file {
-  background-color: rgba(255, 255, 255, 0.05) !important;
+  background-color: #ffffff0d !important;
   padding: .5rem !important;
   border: none;
 }
@@ -1192,12 +1203,12 @@ div.sourceCode,
 pre.console,
 pre {
   scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #3A81C3 transparent; /* Firefox */
+  //scrollbar-color: #3A81C3 transparent; /* Firefox */
+  scrollbar-color: $primary transparent; /* Firefox */
   overflow: auto; /* ensure scrollbars appear when needed */
 }
 
 // Tables
-
 
 table caption code {
   background-color: #6e768166;
@@ -1207,16 +1218,14 @@ table caption code {
 
 .table-striped > tbody > tr:nth-of-type(odd) > * {
   //--bs-table-bg-type: #001C2B !important;
-  --bs-table-bg-type: lighten($slate-800, 80%0 !important; /* Use a contrasting color for odd rows */
+  --bs-table-bg-type: #1E293B !important; /* Use a contrasting color for odd rows */
 }
 
 /* Striped table hover */
 
 .table-hover > tbody > tr:hover > * {
-  //--bs-table-color-state: var(--bs-table-hover-color);
-  --bs-table-bg-state: #001c2b !important;
+  --bs-table-bg-state: #2C3A54 !important;
 }
-
 
 /* Callouts */
 
@@ -1241,12 +1250,17 @@ div.callout-important.callout {
   border: 1px solid $posit-dark-burgundy-2 !important;
 }
 
-
 /* Footnotes */
 
 a.footnote-back {
   font-weight: 900;
   font-size: 1.1rem;
+}
+
+/* Back to top link */
+
+#quarto-back-to-top {
+  color: $white !important;
 }
 
 // Heading font size customization
@@ -9986,8 +10000,7 @@ details > summary > p:only-child {
 }
 
 // codeCopy
-pre.sourceCode,
-code.sourceCode {
+div.sourceCode {
   position: relative;
 }
 
@@ -11148,7 +11161,11 @@ h1.title {
   margin-top: 0;
 }
 
-main.content > section:first-of-type > h2:first-child {
+main.content > p:has(+ section) {
+  margin-bottom: 2rem;
+}
+
+main.content > section:first-of-type > h2:nth-child(1) {
   margin-top: 0;
 }
 
@@ -11390,7 +11407,7 @@ pre.sourceCode {
     border: none;
   }
   font-size: $code-block-font-size;
-  overflow: visible !important;
+  overflow-y: auto !important;
   @if $code-block-bg {
     padding: $code-block-bg-padding;
   }
@@ -11403,7 +11420,7 @@ pre.sourceCode > code.sourceCode {
 }
 
 div.sourceCode {
-  overflow-y: hidden;
+  position: relative;
 }
 
 .callout div.sourceCode {
@@ -11899,6 +11916,8 @@ kbd,
 .callout.callout-style-simple .callout-body {
   font-size: 0.9rem;
   font-weight: 400;
+  margin-bottom: -0.4em;
+  margin-top: 0.5em;
 }
 
 .callout.callout-style-default .callout-body {
@@ -11915,6 +11934,15 @@ kbd,
   margin-bottom: -0.2em;
 }
 
+.callout.callout-empty-content > .callout-header {
+  margin-bottom: 0em;
+  border-bottom-right-radius: add($border-radius, -1px);
+}
+
+.callout > .callout-header.collapsed {
+  border-bottom-right-radius: add($border-radius, -1px);
+}
+
 .callout.callout-style-simple > div.callout-header {
   border-bottom: none;
   font-size: 0.9rem;
@@ -11929,6 +11957,7 @@ kbd,
   font-size: 0.9rem;
   padding-left: 0.5em;
   padding-right: 0.5em;
+  border-top-right-radius: add($border-radius, -1px);
 }
 
 .callout.callout-style-default .callout-body {
@@ -12694,6 +12723,17 @@ a {
   text-decoration: $link-decoration;
 }
 
+// screen-reader-only, cf https://github.com/quarto-dev/quarto-cli/issues/726#issuecomment-1112486100
+.screen-reader-only {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    border: 0;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    width: 1px;
+}
 
   $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
   /*! quarto-variables-start */
