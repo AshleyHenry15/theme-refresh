@@ -19,6 +19,8 @@ website:
         file: admin.qmd
       - text: "User Guide"
         file: user.qmd    
+      - text: "Grid"
+        href: grid.qmd
     right:
       - icon: "list"
         aria-label: 'Drop-down menu for additional Posit resources'
